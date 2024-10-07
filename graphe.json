@@ -1,0 +1,68 @@
+[
+    {
+        "num" : 1,
+        "description" : "Murs",
+        "duree" : 7,
+        "predecesseur" : [0]
+    },
+    {
+        "num" : 2,
+        "description" : "Charpente",
+        "duree" : 3,
+        "predecesseur" : [1]
+    },
+    {
+        "num" : 3,
+        "description" : "Toiture",
+        "duree" : 1,
+        "predecesseur" : [2]
+    },
+    {
+        "num" : 4,
+        "description" : "Plomberie",
+        "duree" : 8,
+        "predecesseur" : [1]
+    },
+    {
+        "num" : 5,
+        "description" : "Electricité",
+        "duree" : 2,
+        "predecesseur" : [3, 4]
+    },
+    {
+        "num" : 5,
+        "description" : "Electricité",
+        "duree" : 2,
+        "predecesseur" : [3, 4]
+    },
+    {
+        "num" : 6,
+        "description" : "Fenêtres",
+        "duree" : 1,
+        "predecesseur" : [3, 4]
+    },
+    {
+        "num" : 7,
+        "description" : "Jardin",
+        "duree" : 1,
+        "predecesseur" : [3, 4]
+    },
+    {
+        "num" : 8,
+        "description" : "Peintures",
+        "duree" : 3,
+        "predecesseur" : [6]
+    },
+    {
+        "num" : 9,
+        "description" : "Cuisine",
+        "duree" : 2,
+        "predecesseur" : [8]
+    },
+    {
+        "num" : 10,
+        "description" : "Installation",
+        "duree" : 1,
+        "predecesseur" : [5, 7, 9]
+    }
+]
