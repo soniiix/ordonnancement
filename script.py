@@ -34,7 +34,9 @@ for tache in range(len(taches)):
         predecesseur = taches[tache]["predecesseur"][0]
         #ajout d'un segment au graphe
         G.add_edge(predecesseur, num, weight=duree)
-    
+
+#ajout de τ
+G.add_edge(len(taches)-1, len(taches))
 
 #dessin du graphe
 #pos = nx.shell_layout(G)
