@@ -39,9 +39,9 @@ for tache in range(len(taches)):
 G.add_edge(len(taches)-1, len(taches))
 
 #dessin du graphe
-#pos = nx.shell_layout(G)
-#nx.draw(G, pos, with_labels=True, arrows=True, node_size=700, node_color="skyblue")
-#plt.show()
+pos = nx.shell_layout(G)
+nx.draw(G, pos, with_labels=True, arrows=True, node_size=700, node_color="skyblue")
+plt.show()
 
 
 fichier.close()
