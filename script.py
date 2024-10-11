@@ -41,9 +41,15 @@ for tache in range(len(taches)):
 duree = chercherDuree(taches, len(taches))
 G.add_edge(len(taches), len(taches)+1, weight=duree)
 
+
+#position topologique des éléments
+for layer, nodes in enumerate(nx.topological_generations(G)):
+    for node in nodes:
+        G.nodes[node]["layer"] = layer
+pos = nx.multipartite_layout(G, subset_key="layer")
 #dessin du graphe
-pos = nx.shell_layout(G)
 nx.draw(G, pos, with_labels=True, arrows=True, node_size=700, node_color="skyblue")
+#ajout de l'affichage de la durée des tâches
 edge_labels = nx.get_edge_attributes(G, "weight")
 nx.draw_networkx_edge_labels(G, pos, edge_labels)
 
