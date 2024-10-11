@@ -30,12 +30,6 @@
         "predecesseur" : [3, 4]
     },
     {
-        "num" : 5,
-        "description" : "Electricité",
-        "duree" : 2,
-        "predecesseur" : [3, 4]
-    },
-    {
         "num" : 6,
         "description" : "Fenêtres",
         "duree" : 1,

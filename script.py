@@ -2,6 +2,11 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import json
 
+def chercherDuree(taches, predecesseur):
+    for tache in taches :
+        if tache["num"] == predecesseur:
+            return tache['duree']
+
 #initialisation d'un nouveau graphe
 G = nx.DiGraph()
 
@@ -9,20 +14,16 @@ G = nx.DiGraph()
 fichier = open("graphe.json", "r")
 taches = json.load(fichier)
 
-num = ""
-predecesseur = ""
-duree = ""
-
 #pour chaque tâche du projet
 for tache in range(len(taches)):
-    #on récupère le numéro et la durée de la tâche
+    #on récupère le numéro de la tâche
     num = taches[tache]["num"]
-    duree = taches[tache]["duree"]
 
     #si plusieurs prédecesseurs
     if (len(taches[tache]["predecesseur"]) > 1):
         predecesseurs = taches[tache]["predecesseur"]
         for i in range(len(predecesseurs)):
+            duree = chercherDuree(taches, predecesseurs[i])
             #ajout d'un segment au graphe
             G.add_edge(predecesseurs[i], num, weight=duree)
 
@@ -32,11 +33,13 @@ for tache in range(len(taches)):
 
     else:
         predecesseur = taches[tache]["predecesseur"][0]
+        duree = chercherDuree(taches, predecesseur)
         #ajout d'un segment au graphe
         G.add_edge(predecesseur, num, weight=duree)
 
 #ajout de τ
-G.add_edge(len(taches)-1, len(taches))
+duree = chercherDuree(taches, len(taches))
+G.add_edge(len(taches), len(taches)+1, weight=duree)
 
 #dessin du graphe
 pos = nx.shell_layout(G)
